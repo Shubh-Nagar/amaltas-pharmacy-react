@@ -15,8 +15,9 @@ function probe(url, retried = false) {
     im.onload = () => { clearTimeout(t); resolve(true); };
     im.onerror = () => {
       clearTimeout(t);
-      if (retried) resolve(false);
-      else probe(swapProtocol(url), true).then(resolve);
+      const alt = swapProtocol(url);
+      if (retried || alt === url) resolve(false);
+      else probe(alt, true).then(resolve);
     };
     im.src = url;
   });

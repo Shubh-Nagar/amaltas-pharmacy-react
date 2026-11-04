@@ -1,9 +1,12 @@
 // Central site settings. Change contact details or document links here.
 
-// Images and PDFs are served from the existing institute site.
-export const REMOTE_BASE =
-  (typeof location !== 'undefined' && location.protocol === 'https:' ? 'https:' : 'http:') +
-  '//amaltasgroup.co.in/pharmacy/';
+// Images and PDFs live on the existing institute site, which only works over plain http.
+// A page served over https (Vercel) is not allowed to load http images ("mixed content"),
+// so on https we load them through the same-origin proxy "/remote/" defined in vercel.json.
+// Override with VITE_REMOTE_BASE if the files move (e.g. to an https host).
+const ORIGIN_BASE = 'http://amaltasgroup.co.in/pharmacy/';
+const onHttps = typeof location !== 'undefined' && location.protocol === 'https:';
+export const REMOTE_BASE = import.meta.env.VITE_REMOTE_BASE || (onHttps ? '/remote/' : ORIGIN_BASE);
 
 /** Turn a path like "assets/images/logo1.png" into a full URL. Local paths ("/images/...") are kept as-is. */
 export function assetUrl(path) {
@@ -13,19 +16,22 @@ export function assetUrl(path) {
   return REMOTE_BASE + encodeURI(path);
 }
 
-/** Swap http <-> https (used as a one-time fallback when an image fails). */
+/** Swap http <-> https (used as a one-time fallback when an absolute image URL fails). */
 export function swapProtocol(u) {
   return u.startsWith('https:') ? u.replace('https:', 'http:') : u.replace('http:', 'https:');
 }
 
+/** URL for a file on the institute server (goes through the proxy on https). */
+const remote = (p) => REMOTE_BASE + p;
+
 export const PDF = {
-  brochure: 'http://amaltasgroup.co.in/pharmacy/pdf/brochure.pdf',
-  pci: 'http://amaltasgroup.co.in/pharmacy/pdf/PCI%20approval%2025_26.pdf',
-  affiliation: 'http://amaltasgroup.co.in/pharmacy/pdf/Affiliation%20Letter.pdf',
-  bulletin: 'http://amaltasgroup.co.in/pharmacy/pdf/Institute%20of%20Pharmacy_bulletin.pdf',
-  bulletin2: 'http://amaltasgroup.co.in/pharmacy/pdf/Pharma_Biz_Vol_02.pdf',
-  syllabusB: 'http://amaltasgroup.co.in/pharmacy/pdf/Syllabus_B_Pharm.pdf',
-  syllabusD: 'http://amaltasgroup.co.in/pharmacy/pdf/D.Pharm%20_syllabus.pdf',
+  brochure: remote('pdf/brochure.pdf'),
+  pci: remote('pdf/PCI%20approval%2025_26.pdf'),
+  affiliation: remote('pdf/Affiliation%20Letter.pdf'),
+  bulletin: remote('pdf/Institute%20of%20Pharmacy_bulletin.pdf'),
+  bulletin2: remote('pdf/Pharma_Biz_Vol_02.pdf'),
+  syllabusB: remote('pdf/Syllabus_B_Pharm.pdf'),
+  syllabusD: remote('pdf/D.Pharm%20_syllabus.pdf'),
   calendarD: 'http://amaltasgroup.co.in/pharmacy/academic_calendar_dpharmacy.asp',
   calendarBOld: 'http://amaltasgroup.co.in/pharmacy/academic_calendar_bpharmacy.asp',
 };

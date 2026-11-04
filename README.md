@@ -51,3 +51,14 @@ public/images/events/     photos that were embedded in the original HTML (Pharma
 - **Chat API:** copy `.env.example` to `.env` and set `VITE_CHAT_ENDPOINT` (POST `{message}` → `{reply}`).
 
 Images other than the event photos above still load from `amaltasgroup.co.in/pharmacy/`, as in the original.
+
+## Images on https (Vercel)
+
+`amaltasgroup.co.in` only works over plain **http**. Browsers block http images on an https page
+("mixed content"), so on https the app loads images and PDFs through `/remote/…`, a same-origin
+proxy defined in `vercel.json` (and mirrored in `vite.config.js` for `npm run dev` / `preview`).
+
+- **Vercel:** works automatically via `vercel.json`.
+- **Hostinger on plain http:** loads directly from the server; nothing to do.
+- **Any other https host:** add an equivalent `/remote/*` → `http://amaltasgroup.co.in/pharmacy/*` proxy,
+  or set `VITE_REMOTE_BASE` to an https location that serves the same files.
