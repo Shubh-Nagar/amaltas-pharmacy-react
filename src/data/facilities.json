@@ -1,0 +1,32 @@
+[
+ {
+  "title": "Pharmacology lab",
+  "image": "campus/PHARMACOLOGY LAB.jpg",
+  "text": "Practical work in pharmacology."
+ },
+ {
+  "title": "Class rooms",
+  "image": "campus/CLASS ROOM.jpg",
+  "text": "Spacious, well defined classrooms."
+ },
+ {
+  "title": "Library and e-library",
+  "image": "campus/LIBRARY.jpg",
+  "text": "Books, journals, e-books and quiet study areas."
+ },
+ {
+  "title": "Hostel",
+  "image": "campus/HOSTEL.jpg",
+  "text": "Shared rooms and low-cost private rooms, with a common sitting area and communal kitchen."
+ },
+ {
+  "title": "Museum",
+  "image": "campus/MUSEUM.jpg",
+  "text": "Samples and models for study."
+ },
+ {
+  "title": "Canteen",
+  "image": "campus/CANTEEN.jpg",
+  "text": "Well furnished canteen with RO and UV water."
+ }
+]
