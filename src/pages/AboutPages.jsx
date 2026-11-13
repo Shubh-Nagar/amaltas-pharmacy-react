@@ -1,8 +1,7 @@
-import { PDF } from '../config.js';
 import { ABOUT_SUB } from '../data/nav.js';
 import Img from '../components/Img.jsx';
 import { Band } from '../components/common.jsx';
-import Icon, { IconBox } from '../components/Icons.jsx';
+import { IconBox } from '../components/Icons.jsx';
 
 export function About() {
   return (
@@ -14,29 +13,13 @@ export function About() {
             <p>Our institute is a constituent unit of Amaltas University, Dewas. It is run by Amaltas Educational Welfare Society, Dewas. It is established to provide quality education and contribute towards social responsibility.</p>
             <p>Amaltas Institute of Pharmacy was established in 2023. It is approved by the Pharmacy Council of India (PCI), New Delhi, and affiliated to Amaltas University, Dewas. It offers B.Pharm and D.Pharm courses.</p>
             <p>The institute has well defined classrooms, equipped laboratories, a well stocked library, instrumentation facilities and a qualified, dedicated teaching staff for theory and practical work.</p>
-            <div className="doclinks">
-              {[
-                [PDF.pci, 'fileCheck', 'PCI approval letter 2025-26'],
-                [PDF.affiliation, 'file', 'Affiliation letter'],
-                [PDF.brochure, 'download', 'Brochure (PDF)'],
-                [PDF.bulletin, 'newspaper', 'Bulletin (PDF)'],
-                [PDF.bulletin2, 'newspaper', 'Bulletin Vol. 02 (PDF)'],
-              ].map(([h, ic, t]) => (
-                <a key={t} href={h} target="_blank" rel="noopener"><Icon name={ic} size={17} /> {t}</a>
-              ))}
+            <div className="avm">
+              <div><IconBox name="target" /><div><h3>Aim</h3><p>To become a centre of excellence in pharmacy education and research, and to prepare qualified, professional pharmacists who can compete in the workplace.</p></div></div>
+              <div><IconBox name="eye" /><div><h3>Vision</h3><p>To create a functional, globally competitive and research focused department that responds to the needs of society.</p></div></div>
+              <div><IconBox name="compass" /><div><h3>Mission</h3><p>To impart pharmacy knowledge through continuous improvement in teaching and learning, build ethics, social empathy and management skills, and motivate students towards higher education and research.</p></div></div>
             </div>
           </div>
           <Img path="assets/images/About amaltas - 540 x 465px_2.jpg" alt="Amaltas Institute of Pharmacy" />
-        </div>
-      </section>
-      <section className="s alt">
-        <div className="wrap">
-          <h2>Aim, vision and mission</h2>
-          <div className="vm" style={{ marginTop: 24 }}>
-            <div><IconBox name="target" /><h3>Aim</h3><p>To become a centre of excellence in pharmacy education and research, and to prepare qualified, professional pharmacists who can compete in the workplace.</p></div>
-            <div><IconBox name="eye" /><h3>Vision</h3><p>To create a functional, globally competitive and research focused department that responds to the needs of society.</p></div>
-            <div><IconBox name="compass" /><h3>Mission</h3><p>To impart pharmacy knowledge through continuous improvement in teaching and learning, build ethics, social empathy and management skills, and motivate students towards higher education and research.</p></div>
-          </div>
         </div>
       </section>
     </>

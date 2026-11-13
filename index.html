@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Amaltas Institute of Pharmacy · Dewas</title>
     <meta name="description" content="Amaltas Institute of Pharmacy, Dewas. PCI approved B.Pharm and D.Pharm courses, a constituent unit of Amaltas University." />
-    <meta name="theme-color" content="#143F24" />
+    <meta name="theme-color" content="#083B1B" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script>
-      // apply saved theme before React mounts (avoids a flash)
-      try { var t = localStorage.getItem('aip-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+      // The site is light-only (dark mode removed). Drop any old saved theme choice.
+      document.documentElement.setAttribute('data-theme', 'light');
+      try { localStorage.removeItem('aip-theme'); } catch (e) {}
       document.documentElement.classList.add('is-loading');
     </script>
     <style>
       /* "Amaltas Pharmacy" page loader. Inline so it paints before the JS bundle loads;
          React's <PageLoader> renders the same markup and takes over seamlessly. */
       html.is-loading,html.is-loading body{overflow:hidden}
-      .pldr{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:radial-gradient(720px 520px at 50% 42%,#1F5C36 0%,#123A22 45%,#0A2114 100%);color:#fff;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+      .pldr{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:radial-gradient(720px 520px at 50% 42%,#0C5A2A 0%,#083B1B 45%,#052A13 100%);color:#fff;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
       .pldr.on{opacity:1;visibility:visible;transition:opacity .35s ease}
       .pldr::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(243,201,91,.08),transparent 40%),radial-gradient(circle at 85% 15%,rgba(243,201,91,.07),transparent 35%);pointer-events:none}
       .pl-in{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;transform:scale(1.04);opacity:.6;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s}

@@ -17,7 +17,7 @@ export const MENU = [
       { href: '#admission', icon: 'grad', label: 'Courses & eligibility', hint: 'B.Pharm, D.Pharm and documents' },
       { href: PDF.brochure, icon: 'download', label: 'Brochure', hint: 'Download the PDF', external: true },
       { href: PDF.pci, icon: 'fileCheck', label: 'PCI approval', hint: 'Approval letter 2025-26', external: true },
-      { href: PDF.affiliation, icon: 'file', label: 'Affiliation letter', hint: 'Amaltas University affiliation', external: true },
+      { href: PDF.affiliation, icon: 'file', label: 'Affiliation letter', hint: 'Amaltas University, 2026-27', external: true },
       { href: '#contact', icon: 'send', label: 'Send an enquiry', hint: 'We will call you back' },
     ],
   },
@@ -25,11 +25,9 @@ export const MENU = [
     label: 'Academic', icon: 'book',
     children: [
       { href: '#calendar', icon: 'calendar', label: 'Academic calendar', hint: 'Course-wise calendars' },
-      { href: '#faculty', icon: 'users', label: 'Teaching faculty', hint: '18 faculty members' },
+      { href: '#faculty', icon: 'users', label: 'Teaching faculty', hint: '25 faculty members' },
       { href: '#syllabus', icon: 'bookOpen', label: 'Syllabus', hint: 'B.Pharm and D.Pharm PDFs' },
       { href: '#career', icon: 'briefcase', label: 'Career', hint: 'Opportunities after pharmacy' },
-      { href: PDF.bulletin, icon: 'newspaper', label: 'Bulletin', hint: 'Institute bulletin (PDF)', external: true },
-      { href: PDF.bulletin2, icon: 'newspaper', label: 'Bulletin Vol. 02', hint: 'Pharma Biz, Volume 02 (PDF)', external: true },
     ],
   },
   { href: '#facilities', label: 'Facilities', icon: 'building' },
@@ -37,8 +35,14 @@ export const MENU = [
     label: 'Happenings', icon: 'sparkles',
     children: [
       { href: '#events', icon: 'sparkles', label: 'Events', hint: 'Celebrations, workshops, drives' },
-      { href: '#awards-faculty', icon: 'award', label: 'Awards, faculty', hint: 'Recognition for teaching staff' },
-      { href: '#awards-student', icon: 'trophy', label: 'Awards, students', hint: 'Recognition for students' },
+      { href: '#news', icon: 'newspaper', label: 'News', hint: 'Press coverage and news releases' },
+      {
+        icon: 'award', label: 'Awards', hint: 'Faculty and student recognition',
+        children: [
+          { href: '#awards-faculty', icon: 'award', label: 'Faculty', hint: 'Recognition for teaching staff' },
+          { href: '#awards-student', icon: 'trophy', label: 'Student', hint: 'Recognition for students' },
+        ],
+      },
     ],
   },
   {

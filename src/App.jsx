@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { RouterProvider, useRoute } from './lib/router.jsx';
 import { LightboxProvider } from './components/Lightbox.jsx';
 import { EventModalProvider } from './components/EventModal.jsx';
@@ -8,13 +8,14 @@ import SearchDialog from './components/SearchDialog.jsx';
 import ChatBot from './components/ChatBot.jsx';
 import Fab from './components/Fab.jsx';
 import PageLoader from './components/PageLoader.jsx';
+import AdmissionPopup from './components/AdmissionPopup.jsx';
 import useScrollReveal from './lib/useScrollReveal.js';
 
 import Home from './pages/Home.jsx';
 import { About, Chairman, Principal } from './pages/AboutPages.jsx';
 import Admission from './pages/Admission.jsx';
 import { Calendar, Career, Faculty, Syllabus } from './pages/AcademicPages.jsx';
-import { AwardsFaculty, AwardsStudent, Events, Facilities } from './pages/CampusPages.jsx';
+import { AwardsFaculty, AwardsStudent, Events, Facilities, News } from './pages/CampusPages.jsx';
 import { Committee, Committees, Contact } from './pages/OtherPages.jsx';
 import { COMMITTEES } from './data/committees.js';
 
@@ -30,6 +31,7 @@ export const ROUTES = {
   syllabus: { title: 'Syllabus', Component: Syllabus },
   facilities: { title: 'Facilities', Component: Facilities },
   events: { title: 'Events', Component: Events },
+  news: { title: 'News', Component: News },
   'awards-faculty': { title: 'Faculty awards', Component: AwardsFaculty },
   'awards-student': { title: 'Student awards', Component: AwardsStudent },
   committees: { title: 'Committees', Component: Committees },
@@ -39,19 +41,6 @@ export const ROUTES = {
   career: { title: 'Career', Component: Career },
   contact: { title: 'Contact', Component: Contact },
 };
-
-function useTheme() {
-  const [theme, setTheme] = useState(() => document.documentElement.getAttribute('data-theme') || 'light');
-  useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
-  const toggle = useCallback(() => {
-    setTheme((t) => {
-      const next = t === 'dark' ? 'light' : 'dark';
-      try { localStorage.setItem('aip-theme', next); } catch { /* storage unavailable */ }
-      return next;
-    });
-  }, []);
-  return [theme, toggle];
-}
 
 function CurrentPage() {
   const route = useRoute();
@@ -64,7 +53,6 @@ function CurrentPage() {
 }
 
 function Shell() {
-  const [theme, toggleTheme] = useTheme();
   const route = useRoute();
   useScrollReveal(route);
   const search = useRef(null);
@@ -86,12 +74,13 @@ function Shell() {
   return (
     <>
       <PageLoader />
-      <Header onSearch={openSearch} theme={theme} onToggleTheme={toggleTheme} />
+      <Header onSearch={openSearch} />
       <main><CurrentPage /></main>
       <Footer />
       <SearchDialog ref={search} routes={ROUTES} />
       <Fab />
       <ChatBot />
+      <AdmissionPopup />
     </>
   );
 }

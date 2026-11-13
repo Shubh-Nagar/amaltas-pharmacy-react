@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { PDF, CONTACT } from '../config.js';
+import { PDF, CONTACT, assetUrl } from '../config.js';
 import EVENTS from '../data/events.json';
 import GALLERY from '../data/gallery.json';
 import Img from '../components/Img.jsx';
@@ -9,6 +9,9 @@ import { useEventModal } from '../components/EventModal.jsx';
 import Icon, { IconBox } from '../components/Icons.jsx';
 
 const HERO_IMG = 'assets/images/card/Where Science Meets Service A Journey in Pharmacy.jpg';
+// Background video for the home hero (public/videos). HERO_IMG is its poster and the reduced-motion fallback.
+const HERO_VIDEO = import.meta.env.BASE_URL.replace(/\/$/, '') + '/videos/hero-video.mp4';
+const reducedMotion = () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const NOTICES = [
   ['#admission', 'Admission open 2026-27 for B.Pharm and D.Pharm'],
@@ -26,7 +29,7 @@ const WHY = [
   ['bed', 'Hostel on campus', 'Shared rooms and low-cost private rooms, with a common sitting area and communal kitchen.'],
   ['bus', 'University transport', 'Buses cover important points in Indore, Dewas and Ujjain, and run for industrial tours.'],
   ['leaf', 'Green, secure campus', 'A lush green campus with 24x7 security and a medicinal garden.'],
-  ['users', 'Qualified faculty', '18 teaching staff for theory and practical work, led by Dr. Neelam Khan.'],
+  ['users', 'Qualified faculty', '25 teaching staff for theory and practical work, led by Dr. Neelam Khan.'],
 ];
 
 const BOARD = [
@@ -139,7 +142,22 @@ export default function Home() {
       <NoticeBar />
 
       <section className="hero2">
-        <Img className="bg" path={HERO_IMG} lazy={false} ref={bgRef} />
+        {reducedMotion() ? (
+          <Img className="bg" path={HERO_IMG} lazy={false} ref={bgRef} />
+        ) : (
+          <video
+            className="bg"
+            ref={bgRef}
+            src={HERO_VIDEO}
+            poster={assetUrl(HERO_IMG)}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          />
+        )}
         <div className="wrap hg">
           <div>
             <div className="pills">
@@ -175,7 +193,7 @@ export default function Home() {
         <div className="wrap">
           <ul>
             <li><Icon name="calendarCheck" size={26} className="fi" /><CountUp end={2023} /><span>ESTABLISHED IN DEWAS</span></li>
-            <li><Icon name="users" size={26} className="fi" /><CountUp end={18} /><span>EXPERIENCED FACULTY</span></li>
+            <li><Icon name="users" size={26} className="fi" /><CountUp end={25} /><span>EXPERIENCED FACULTY</span></li>
             <li><Icon name="grad" size={26} className="fi" /><CountUp end={2} /><span>COURSES OFFERED</span></li>
             <li><Icon name="shield" size={26} className="fi" /><b>PCI</b><span>APPROVED INSTITUTE</span></li>
           </ul>
@@ -241,7 +259,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="s dark">
+      <section className="s dark msgbg">
         <div className="wrap">
           <span className="eyebrow">Leadership</span>
           <h2>Messages</h2>

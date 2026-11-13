@@ -23,14 +23,16 @@ export function swapProtocol(u) {
 
 /** URL for a file on the institute server (goes through the proxy on https). */
 const remote = (p) => REMOTE_BASE + p;
+/** URL for a file bundled with this site in /public. */
+const local = (p) => import.meta.env.BASE_URL.replace(/\/$/, '') + '/' + p;
 
 export const PDF = {
   brochure: remote('pdf/brochure.pdf'),
   pci: remote('pdf/PCI%20approval%2025_26.pdf'),
-  affiliation: remote('pdf/Affiliation%20Letter.pdf'),
+  affiliation: local('pdf/affiliation-letter-2026-27.pdf'), // Amaltas University, ref AUD/RO/Affiliation/2026/412, dated 03/07/2026
   bulletin: remote('pdf/Institute%20of%20Pharmacy_bulletin.pdf'),
-  bulletin2: remote('pdf/Pharma_Biz_Vol_02.pdf'),
-  syllabusB: remote('pdf/Syllabus_B_Pharm.pdf'),
+  bulletin2: local('pdf/pharma-biz-vol-02.pdf'),
+  syllabusB: local('pdf/bpharm-syllabus-2026-nep.pdf'), // PCI B.Pharm syllabus 2026 (NEP 2020), from 2026-27
   syllabusD: remote('pdf/D.Pharm%20_syllabus.pdf'),
   calendarD: 'http://amaltasgroup.co.in/pharmacy/academic_calendar_dpharmacy.asp',
   calendarBOld: 'http://amaltasgroup.co.in/pharmacy/academic_calendar_bpharmacy.asp',

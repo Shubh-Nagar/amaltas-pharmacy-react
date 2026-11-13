@@ -53,3 +53,37 @@ export const CAL_NOTES = [
   'During the sessional examinations, classes in the remaining periods will be conducted as per schedule.',
   'The III Sessional Examination is optional. Students who wish to appear in it will take it with their respective sessional exam in-charge.',
 ];
+
+// D.Pharm academic calendar, session 2026-2027 (dated 01/07/2026).
+// Each row: [particular, I year, II year, isExamRow]
+export const DCAL_ROWS = [
+  ['Duration of session / year', 'July 2026 to June 2027', 'July 2026 to June 2027'],
+  ['Commencement of academic classes', '20 August 2026 to 17 May 2027', '20 August 2026 to 17 May 2027'],
+  ['Induction', '7 Sept 2026', '–'],
+  ['Sessional Test I', '16 Nov to 21 Nov 2026', '16 Nov to 21 Nov 2026', true],
+  ['Sessional Test I result announcement', '30 Nov 2026', '30 Nov 2026'],
+  ['Sessional Test II', '1 Feb to 6 Feb 2027', '1 Feb to 6 Feb 2027', true],
+  ['Sessional Test II result announcement', '13 Feb 2027', '13 Feb 2027'],
+  ['Sessional Test III', '26 April to 30 April 2027', '26 April to 1 May 2027', true],
+  ['Sessional Test III result announcement', '6 May 2027', '6 May 2027'],
+  ['Submission of practical files and assignments', '10 May to 15 May 2027', '10 May to 15 May 2027'],
+  ['End of teaching', '17 May 2027', '17 May 2027'],
+  ['Preparation leave', '17 May to 3 June 2027', '17 May to 3 June 2027'],
+  ['Submission of internal marks to the university', '18 May 2027', '18 May 2027'],
+  ['Submission of exam forms', '18 May to 28 May 2027', '18 May to 28 May 2027'],
+  ['Yearly examination (theory and practical)', '7 June to 22 June 2027', '7 June to 22 June 2027', true],
+  ['Year break (summer vacation) / student training', '22 June to 22 July 2027', 'Training starts after result declaration'],
+  ['Commencement of new session', '23 July 2027', '–'],
+];
+
+export const DCAL_TABS = [
+  { v: '0', label: 'Both years' },
+  { v: '3', label: 'I year' },
+  { v: '4', label: 'II year' },
+];
+
+export const DCAL_NOTES = [
+  'Students must strictly follow the university attendance criterion (75%). Students who fall short will not be permitted to appear in the examination.',
+  'During the sessional examinations, classes in the remaining periods will be conducted as per schedule.',
+  'Depending on the progress of the syllabus each month, the department will organise extra classes during official holidays.',
+];

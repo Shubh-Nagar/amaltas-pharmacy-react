@@ -27,6 +27,20 @@ export function Facilities() {
         </div>
       </section>
       <section className="s alt">
+        <div className="wrap">
+          <h2 className="ih"><IconBox name="building" />Campus photos</h2>
+          <p className="lead">Classrooms, labs, library and campus. Select a photo to see it larger.</p>
+          <div className="grid3 facgal">
+            {GALLERY.facilities.map((p) => (
+              <figure key={p.file} className="card">
+                <ZoomImg path={p.file} alt={p.title} />
+                <figcaption className="b"><h3 style={{ fontSize: 18 }}>{p.title}</h3></figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="s">
         <div className="wrap two">
           <div className="prose">
             <h2 className="ih"><IconBox name="bus" />Transportation</h2>
@@ -46,7 +60,7 @@ export function Facilities() {
           </div>
         </div>
       </section>
-      <section className="s">
+      <section className="s alt">
         <div className="wrap">
           <h2 className="ih"><IconBox name="flask" />Laboratories</h2>
           <p className="lead">Practical work across pharmaceutical sciences.</p>
@@ -131,4 +145,18 @@ export const AwardsFaculty = () => (
 );
 export const AwardsStudent = () => (
   <AwardsPage who="Students" title="Awards, students" text="Recognition for our students." folder="awards_student" files={GALLERY.awardsStudent} />
+);
+
+export const News = () => (
+  <>
+    <Band crumb={['Happenings', 'News']} title="News" text="Press coverage of events and achievements at Amaltas Institute of Pharmacy." />
+    <section className="s">
+      <div className="wrap">
+        <p className="lead">Select a clipping to read it larger.</p>
+        <div className="gal tall">
+          {GALLERY.news.map((g) => <ZoomImg key={g} path={g} alt="Newspaper clipping about Amaltas Institute of Pharmacy" />)}
+        </div>
+      </div>
+    </section>
+  </>
 );

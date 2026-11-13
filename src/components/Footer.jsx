@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
           <div>
             <h3>Campus</h3>
-            <a href="#facilities">Infrastructure</a><a href="#events">Events</a><a href="#awards-faculty">Awards, faculty</a><a href="#awards-student">Awards, students</a><a href="#faculty">Teaching faculty</a>
+            <a href="#facilities">Infrastructure</a><a href="#events">Events</a><a href="#news">News</a><a href="#awards-faculty">Awards, faculty</a><a href="#awards-student">Awards, students</a><a href="#faculty">Teaching faculty</a>
           </div>
           <div>
             <h3>Downloads</h3>

@@ -4,11 +4,23 @@
   "designation": "Principal and Professor"
  },
  {
-  "name": "Ms. Shalu Chouhan",
+  "name": "Mr. Akhil Nagar",
+  "designation": "Professor"
+ },
+ {
+  "name": "Mr. Nitin Saini",
+  "designation": "Professor"
+ },
+ {
+  "name": "Ms. Neetu Choudhary",
   "designation": "Associate Professor"
  },
  {
-  "name": "Mr. Sanjay Giri",
+  "name": "Ms. Sonika Shrivastav",
+  "designation": "Associate Professor"
+ },
+ {
+  "name": "Ms. Shalu Chouhan",
   "designation": "Associate Professor"
  },
  {
@@ -16,31 +28,7 @@
   "designation": "Assistant Professor"
  },
  {
-  "name": "Ms. Sana Khan",
-  "designation": "Assistant Professor"
- },
- {
-  "name": "Ms. Avika Joshi",
-  "designation": "Assistant Professor"
- },
- {
-  "name": "Ms. Manju Parmar",
-  "designation": "Assistant Professor"
- },
- {
-  "name": "Ms. Shaziya Jabeen",
-  "designation": "Assistant Professor"
- },
- {
-  "name": "Ms. Sonika Shrivastav",
-  "designation": "Assistant Professor"
- },
- {
-  "name": "Ms. Priyanka Singh",
-  "designation": "Assistant Professor"
- },
- {
-  "name": "Ms. Ritika Danshoundhe",
+  "name": "Mr. Sanjay Giri",
   "designation": "Assistant Professor"
  },
  {
@@ -48,11 +36,55 @@
   "designation": "Assistant Professor"
  },
  {
-  "name": "Ms. Yogita Patidar",
+  "name": "Mrs. Avika Joshi",
   "designation": "Assistant Professor"
  },
  {
-  "name": "Ms. Ruchika Dubey",
+  "name": "Mrs. Manju Parmar",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Ms. Priyanka Singh",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Ms. Ritika Dashaunde",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Mr. Kashish Rajput",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Ms. Vidhika Chouhan",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Ms. Farhat Shaikh",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Mr. Jayant Kanungo",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Mr. Sandeep Barman",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Ms. Hema Malviya",
+  "designation": "Assistant Professor"
+ },
+ {
+  "name": "Ms. Ishrat Khan",
+  "designation": "Lecturer"
+ },
+ {
+  "name": "Mr. Amit Kumawat",
+  "designation": "Lecturer"
+ },
+ {
+  "name": "Mrs. Ruchika Dubey",
   "designation": "Lecturer"
  },
  {
@@ -60,15 +92,11 @@
   "designation": "Lecturer"
  },
  {
-  "name": "Ms. Ishrat Khan",
+  "name": "Ms. Reena Rathore",
   "designation": "Lecturer"
  },
  {
-  "name": "Ms. Amit Verma",
-  "designation": "Lecturer"
- },
- {
-  "name": "Ms. Reena Singh",
+  "name": "Ms. Anjali Pandya",
   "designation": "Lecturer"
  }
 ]

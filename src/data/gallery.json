@@ -35,5 +35,95 @@
   "Gallery 4.jpg",
   "Gallery 5.jpg",
   "Gallery 6.jpg"
+ ],
+ "news": [
+  "/images/news/pharmacist-day-2026-collage.jpg",
+  "/images/news/pharmacist-day-2026-malwa-herald.jpg",
+  "/images/news/pharmacist-day-2026-lokdesh.jpg",
+  "/images/news/pharmacist-day-2026-maa-bhagwati-times.jpg",
+  "/images/news/pharmacist-day-2026-dainik-sadhna.jpg",
+  "/images/news/pharmacist-day-2026-balwas-times.jpg",
+  "news/pharmacy day-1.jpg",
+  "news/pharmacy day.jpg",
+  "news/yoga-1.jpg",
+  "news/yoga.jpg",
+  "news/12.jpg",
+  "news/11.jpg",
+  "news/10.jpg",
+  "news/9.jpg",
+  "news/8.jpg",
+  "news/7.jpeg",
+  "news/6.jpeg",
+  "news/5.jpeg",
+  "news/4.jpeg",
+  "news/3.jpeg",
+  "news/1.jpg",
+  "news/2.jpg"
+ ],
+ "facilities": [
+  {
+   "file": "/images/facilities/institute-corridor.jpg",
+   "title": "Institute entrance and corridor"
+  },
+  {
+   "file": "/images/facilities/classroom.jpg",
+   "title": "Classroom"
+  },
+  {
+   "file": "/images/facilities/library.jpg",
+   "title": "Library"
+  },
+  {
+   "file": "/images/facilities/library-reading-area.jpg",
+   "title": "Library reading area"
+  },
+  {
+   "file": "/images/facilities/computer-lab.jpg",
+   "title": "Computer lab"
+  },
+  {
+   "file": "/images/facilities/pharmaceutics-lab.jpg",
+   "title": "Pharmaceutics lab"
+  },
+  {
+   "file": "/images/facilities/pharmacology-lab.jpg",
+   "title": "Pharmacology lab"
+  },
+  {
+   "file": "/images/facilities/pharmacognosy-lab.jpg",
+   "title": "Pharmacognosy lab"
+  },
+  {
+   "file": "/images/facilities/anatomy-physiology-lab.jpg",
+   "title": "Human anatomy and physiology lab"
+  },
+  {
+   "file": "/images/facilities/instrument-room.jpg",
+   "title": "Instrument room"
+  },
+  {
+   "file": "/images/facilities/machine-room.jpg",
+   "title": "Machine room"
+  },
+  {
+   "file": "/images/facilities/laboratory-benches.jpg",
+   "title": "Laboratory"
+  },
+  {
+   "file": "/images/facilities/laboratory-preparation-room.jpg",
+   "title": "Laboratory and preparation room"
+  },
+  {
+   "file": "/images/facilities/drug-information-centre.jpg",
+   "title": "Drug information and distribution centre"
+  },
+  {
+   "file": "/images/facilities/herbal-garden.jpg",
+   "title": "Herbal garden"
+  },
+  {
+   "file": "/images/facilities/institute-corridor-reception.jpg",
+   "title": "Reception desk"
+  }
  ]
 }

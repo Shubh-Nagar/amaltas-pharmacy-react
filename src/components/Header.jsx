@@ -7,6 +7,23 @@ import { Arrow } from './common.jsx';
 import Icon from './Icons.jsx';
 
 function DDItem({ c }) {
+  if (c.children) {
+    // Nested submenu: the row links to the first child and flies out the rest on hover/focus.
+    return (
+      <>
+        <HashLink href={c.children[0].href} className="ddsubt" aria-haspopup="true">
+          <span className="ddi"><Icon name={c.icon || 'arrowRight'} size={19} /></span>
+          <span className="ddt">{c.label}<small>{c.hint}</small></span>
+          <span className="ddchev" aria-hidden="true" />
+        </HashLink>
+        <ul className="ddsub">
+          {c.children.map((cc, i) => (
+            <li key={cc.label + i} style={{ '--k': i }}><DDItem c={cc} /></li>
+          ))}
+        </ul>
+      </>
+    );
+  }
   const inner = (
     <>
       <span className="ddi"><Icon name={c.icon || 'arrowRight'} size={19} /></span>
@@ -19,9 +36,12 @@ function DDItem({ c }) {
     : <HashLink href={c.href}>{inner}</HashLink>;
 }
 
-function Dropdown({ item, open, onToggle, onOpen }) {
+const isDesktop = () => window.matchMedia('(min-width: 1341px)').matches;
+
+function Dropdown({ item, open, onToggle, onOpen, onHoverOpen, onHoverClose, onClose }) {
   const route = useRoute();
-  const active = item.children.some((c) => c.href === '#' + route);
+  const flat = item.children.flatMap((c) => (c.children ? c.children : [c]));
+  const active = flat.some((c) => c.href === '#' + route);
   const btnRef = useRef(null);
   const listRef = useRef(null);
 
@@ -40,7 +60,16 @@ function Dropdown({ item, open, onToggle, onOpen }) {
   };
 
   return (
-    <li className={'dd' + (open ? ' open' : '')} onKeyDown={onKeyDown}>
+    <li
+      className={'dd' + (open ? ' open' : '')}
+      onKeyDown={onKeyDown}
+      onPointerEnter={(e) => { if (e.pointerType === 'mouse' && isDesktop()) onHoverOpen(); }}
+      onPointerLeave={(e) => { if (e.pointerType === 'mouse' && isDesktop()) onHoverClose(); }}
+      onBlur={(e) => {
+        // keyboard: close when focus moves out of this dropdown
+        if (isDesktop() && !e.currentTarget.contains(e.relatedTarget)) onClose();
+      }}
+    >
       <button
         ref={btnRef}
         className="ddb"
@@ -49,8 +78,9 @@ function Dropdown({ item, open, onToggle, onOpen }) {
         aria-current={active ? 'page' : undefined}
         onClick={(e) => {
           e.stopPropagation();
-          onToggle();
-          if (open) btnRef.current.blur();
+          // With a mouse on desktop, hover already controls the menu; a click just keeps it open.
+          if (isDesktop() && e.nativeEvent.pointerType === 'mouse') onOpen();
+          else onToggle();
         }}
       >
         <Icon name={item.icon} size={18} className="mi" />
@@ -58,20 +88,27 @@ function Dropdown({ item, open, onToggle, onOpen }) {
       </button>
       <ul ref={listRef}>
         {item.children.map((c, i) => (
-          <li key={c.label + i} style={{ '--k': i }}><DDItem c={c} /></li>
+          <li key={c.label + i} className={c.children ? 'hassub' : undefined} style={{ '--k': i }}><DDItem c={c} /></li>
         ))}
       </ul>
     </li>
   );
 }
 
-export default function Header({ onSearch, theme, onToggleTheme }) {
+export default function Header({ onSearch }) {
   const route = useRoute();
   const [drawer, setDrawer] = useState(false);
   const [openDD, setOpenDD] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [noLogo, setNoLogo] = useState(false);
+  const closeTimer = useRef(null);
+  const hoverOpen = (label) => { clearTimeout(closeTimer.current); setOpenDD(label); };
+  const hoverClose = (label) => {
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpenDD((o) => (o === label ? null : o)), 180);
+  };
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
 
   // close menus on navigation
   useEffect(() => {
@@ -136,7 +173,10 @@ export default function Header({ onSearch, theme, onToggleTheme }) {
                   item={item}
                   open={openDD === item.label}
                   onToggle={() => setOpenDD((o) => (o === item.label ? null : item.label))}
-                  onOpen={() => setOpenDD(item.label)}
+                  onOpen={() => hoverOpen(item.label)}
+                  onHoverOpen={() => hoverOpen(item.label)}
+                  onHoverClose={() => hoverClose(item.label)}
+                  onClose={() => setOpenDD((o) => (o === item.label ? null : o))}
                 />
               ) : (
                 <li key={item.label}><HashLink href={item.href}><Icon name={item.icon} size={18} className="mi" /><span className="ml">{item.label}</span></HashLink></li>
@@ -149,9 +189,6 @@ export default function Header({ onSearch, theme, onToggleTheme }) {
         <div className="acts">
           <button className="ib" type="button" aria-label="Search the site" title="Search ( / )" onClick={onSearch}>
             <Icon name="search" size={18} stroke={2.2} />
-          </button>
-          <button className="ib" type="button" aria-label="Switch light or dark theme" title={theme === 'dark' ? 'Light theme' : 'Dark theme'} aria-pressed={theme === 'dark'} onClick={onToggleTheme}>
-            <span className="tg-ic" key={theme}><Icon name={theme === 'dark' ? 'sun' : 'moon'} size={18} /></span>
           </button>
           <a className="btn" href="#contact">Apply 2026-27 <Arrow /></a>
           <button
