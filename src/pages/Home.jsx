@@ -160,17 +160,13 @@ export default function Home() {
         )}
         <div className="wrap hg">
           <div>
-            <div className="pills">
-              <Ext className="pill" href={PDF.pci}><span className="ck">&#10003;</span>PCI approved<Arrow size={18} w={2.6} /></Ext>
-              <Ext className="pill" href={PDF.affiliation}><span className="ck">&#10003;</span>Affiliation letter<Arrow size={18} w={2.6} /></Ext>
-            </div>
             <h1>Where <em>science</em> meets service.</h1>
             <p>Shape your future as a pharmacist at Amaltas University, Dewas, with equipped labs, a library, a hostel and a green campus.</p>
             <div className="cta">
               <a className="btn" href="#admission"><Icon name="grad" size={18} /> Explore courses</a>
               <Ext className="btn ghost" href={PDF.brochure}><Icon name="download" size={18} /> Download brochure</Ext>
             </div>
-            <ul className="chips"><li><Icon name="clock" size={15} /> B.Pharm &middot; 4 years</li><li><Icon name="clock" size={15} /> D.Pharm &middot; 2 years</li><li><Icon name="bus" size={15} /> Hostel &amp; transport</li></ul>
+            <ul className="chips"><li><a href="#syllabus"><Icon name="clock" size={15} /> B.Pharm &middot; 4 years</a></li><li><a href="#syllabus"><Icon name="clock" size={15} /> D.Pharm &middot; 2 years</a></li></ul>
           </div>
           <QuickEnquiry />
         </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MENU } from '../data/nav.js';
-import { LOGO } from '../config.js';
+import { LOGO, PDF } from '../config.js';
 import { HashLink, useRoute } from '../lib/router.jsx';
 import Img from './Img.jsx';
 import { Arrow } from './common.jsx';
@@ -153,6 +153,9 @@ export default function Header({ onSearch }) {
     <header className={'site' + (scrolled ? ' sc' : '')}>
       <div className={'scrim' + (drawer ? ' on' : '')} onClick={() => setDrawer(false)} />
       <div className="wrap nav">
+        <a className="pcib" href={PDF.pci} target="_blank" rel="noopener" title="View PCI approval letter">
+          <span className="pcib-t"><b>PCI</b>Approved</span>
+        </a>
         <a className="brand" href="#home" aria-label="Amaltas Institute of Pharmacy, home">
           <span className={'lg' + (noLogo ? ' nologo' : '')}>
             <Img path={LOGO} lazy={false} onBroken={() => setNoLogo(true)} />

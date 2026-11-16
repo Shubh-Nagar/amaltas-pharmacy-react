@@ -9,7 +9,7 @@ function mailto(body) {
 
 /** Small call-back form in the home hero. */
 export function QuickEnquiry() {
-  const [f, setF] = useState({ name: '', phone: '', course: 'B.Pharm' });
+  const [f, setF] = useState({ name: '', phone: '', city: '', address: '', course: 'B.Pharm' });
   const [err, setErr] = useState({});
   const [sent, setSent] = useState(false);
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value });
@@ -20,7 +20,7 @@ export function QuickEnquiry() {
     setErr(v.errors);
     if (!v.ok) return;
     setSent(true);
-    mailto(`Name: ${f.name.trim()}\nPhone: ${f.phone.trim()}\nCourse: ${f.course}`);
+    mailto(`Name: ${f.name.trim()}\nPhone: ${f.phone.trim()}\nCity: ${f.city.trim()}\nAddress: ${f.address.trim()}\nCourse: ${f.course}`);
   }
 
   return (
@@ -29,6 +29,8 @@ export function QuickEnquiry() {
       <p>Leave your number. Our team will call you back.</p>
       <label>Your name<input value={f.name} onChange={set('name')} autoComplete="name" /><span className="err">{err.name}</span></label>
       <label>Phone number<input value={f.phone} onChange={set('phone')} type="tel" inputMode="numeric" autoComplete="tel" /><span className="err">{err.phone}</span></label>
+      <label>City<input value={f.city} onChange={set('city')} autoComplete="address-level2" /></label>
+      <label>Address<textarea value={f.address} onChange={set('address')} rows={2} autoComplete="street-address" /></label>
       <label>Course<select value={f.course} onChange={set('course')}><option>B.Pharm</option><option>D.Pharm</option></select></label>
       <button className="btn" type="submit">Request a call back</button>
       <div className="hok" role="status" style={{ display: sent ? 'block' : 'none' }}>

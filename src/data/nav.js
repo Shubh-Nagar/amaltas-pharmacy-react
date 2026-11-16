@@ -7,7 +7,7 @@ export const MENU = [
     children: [
       { href: '#about', icon: 'building', label: 'About institute', hint: 'Our story, aim, vision and mission' },
       { href: '#chairman', icon: 'userStar', label: 'Chairman message', hint: 'A welcome from the Chairman' },
-      { href: '#principal', icon: 'user', label: 'Principal message', hint: 'A welcome from Dr. Neelam Khan' },
+      { href: '#principal', icon: 'user', label: "Principal message", hint: 'Message from the Principal' },
       { href: '#committees', icon: 'users', label: 'Committees', hint: 'Cells for student welfare and guidance' },
     ],
   },

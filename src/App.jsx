@@ -5,7 +5,6 @@ import { EventModalProvider } from './components/EventModal.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import SearchDialog from './components/SearchDialog.jsx';
-import ChatBot from './components/ChatBot.jsx';
 import Fab from './components/Fab.jsx';
 import PageLoader from './components/PageLoader.jsx';
 import AdmissionPopup from './components/AdmissionPopup.jsx';
@@ -79,7 +78,6 @@ function Shell() {
       <Footer />
       <SearchDialog ref={search} routes={ROUTES} />
       <Fab />
-      <ChatBot />
       <AdmissionPopup />
     </>
   );
