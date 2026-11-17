@@ -44,8 +44,7 @@ export default function Footer() {
           <div>
             <h3>Contact</h3>
             <p className="fic"><Icon name="pin" size={16} />Village Bangar, Dewas-Ujjain Highway, Dewas (M.P.) 455001</p>
-            <a className="fic" href="tel:18005712181"><Icon name="phone" size={16} />Toll free 1800-571-2181</a>
-            <a className="fic" href="tel:07272482547"><Icon name="phone" size={16} />07272-482547, 9685096514</a>
+            <a className="fic" href={CONTACT.phoneTel}><Icon name="phone" size={16} />Campus {CONTACT.phone}</a>
             <a className="fic" href={'mailto:' + CONTACT.email}><Icon name="mail" size={16} />{CONTACT.email}</a>
             <Ext className="fic" href={CONTACT.maps}><Icon name="external" size={16} />Open in Google Maps</Ext>
           </div>

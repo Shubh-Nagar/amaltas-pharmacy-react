@@ -16,8 +16,8 @@ export const MENU = [
     children: [
       { href: '#admission', icon: 'grad', label: 'Courses & eligibility', hint: 'B.Pharm, D.Pharm and documents' },
       { href: PDF.brochure, icon: 'download', label: 'Brochure', hint: 'Download the PDF', external: true },
-      { href: PDF.pci, icon: 'fileCheck', label: 'PCI approval', hint: 'Approval letter 2025-26', external: true },
-      { href: PDF.affiliation, icon: 'file', label: 'Affiliation letter', hint: 'Amaltas University, 2026-27', external: true },
+      { href: PDF.pci, icon: 'fileCheck', label: 'PCI approval', hint: 'Approval letter', external: true },
+      { href: PDF.affiliation, icon: 'file', label: 'Affiliation letter', hint: 'Amaltas University', external: true },
       { href: '#contact', icon: 'send', label: 'Send an enquiry', hint: 'We will call you back' },
     ],
   },

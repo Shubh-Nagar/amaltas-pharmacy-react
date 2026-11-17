@@ -95,6 +95,25 @@ function Dropdown({ item, open, onToggle, onOpen, onHoverOpen, onHoverClose, onC
   );
 }
 
+/** Gold rosette seal with a tick, used for the "PCI Approved" mark in the nav bar. */
+function PciSeal() {
+  return (
+    <svg className="pcib-seal" viewBox="0 0 48 48" aria-hidden="true">
+      <defs>
+        <linearGradient id="pcibGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#FBE07F" />
+          <stop offset=".5" stopColor="#E0A82E" />
+          <stop offset="1" stopColor="#F3C95B" />
+        </linearGradient>
+      </defs>
+      <polygon className="pcib-rose" points="24.0,1.0 27.9,4.2 32.8,2.8 35.2,7.2 40.3,7.7 40.8,12.8 45.2,15.2 43.8,20.1 47.0,24.0 43.8,27.9 45.2,32.8 40.8,35.2 40.3,40.3 35.2,40.8 32.8,45.2 27.9,43.8 24.0,47.0 20.1,43.8 15.2,45.2 12.8,40.8 7.7,40.3 7.2,35.2 2.8,32.8 4.2,27.9 1.0,24.0 4.2,20.1 2.8,15.2 7.2,12.8 7.7,7.7 12.8,7.2 15.2,2.8 20.1,4.2" fill="url(#pcibGold)" />
+      <circle cx="24" cy="24" r="16" fill="#107C3A" stroke="#FFF6D6" strokeWidth="1.5" />
+      <circle cx="24" cy="24" r="12.6" fill="none" stroke="#F3C95B" strokeWidth=".8" strokeDasharray="1.6 1.4" />
+      <path d="m17.5 24.4 4.4 4.4 8.6-9" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function Header({ onSearch }) {
   const route = useRoute();
   const [drawer, setDrawer] = useState(false);
@@ -153,12 +172,16 @@ export default function Header({ onSearch }) {
     <header className={'site' + (scrolled ? ' sc' : '')}>
       <div className={'scrim' + (drawer ? ' on' : '')} onClick={() => setDrawer(false)} />
       <div className="wrap nav">
-        <a className="pcib" href={PDF.pci} target="_blank" rel="noopener" title="View PCI approval letter">
-          <span className="pcib-t"><b>PCI</b>Approved</span>
-        </a>
         <a className="brand" href="#home" aria-label="Amaltas Institute of Pharmacy, home">
           <span className={'lg' + (noLogo ? ' nologo' : '')}>
             <Img path={LOGO} lazy={false} onBroken={() => setNoLogo(true)} />
+          </span>
+        </a>
+        <a className="pcib" href={PDF.pci} target="_blank" rel="noopener" title="View the PCI approval letter" aria-label="Approved by the Pharmacy Council of India. View the approval letter">
+          <PciSeal />
+          <span className="pcib-t">
+            <b>PCI Approved</b>
+            <small>Pharmacy Council of India</small>
           </span>
         </a>
 

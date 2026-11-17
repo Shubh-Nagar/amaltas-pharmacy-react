@@ -1,4 +1,5 @@
-import { HashLink } from '../lib/router.jsx';
+import { HashLink, useRoute } from '../lib/router.jsx';
+import { bannerFor } from '../data/banners.js';
 import Img from './Img.jsx';
 import { useLightbox } from './Lightbox.jsx';
 import localPhotos from '../data/localPhotos.json';
@@ -14,8 +15,10 @@ export const Ext = (props) => <a target="_blank" rel="noopener" {...props} />;
 
 /** Green page header band with breadcrumb and optional sub-navigation. */
 export function Band({ crumb, title, text, sub }) {
+  const bg = bannerFor(useRoute());
   return (
     <div className="band">
+      <Img key={bg} className="band-bg" path={bg} lazy={false} aria-hidden="true" />
       <div className="wrap">
         <div className="crumb">
           <a href="#home"><Icon name="home" size={14} stroke={2.2} style={{ verticalAlign: '-2px', marginRight: 4 }} />Home</a>

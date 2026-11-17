@@ -64,8 +64,7 @@ export function Contact() {
             <div>
               <IconBox name="pin" />
               <h3>Campus</h3>Amaltas Institute of Pharmacy<br />Village Bangar, Dewas-Ujjain Highway,<br />Dewas (M.P.) 455001<br />
-              Toll free: <a href="tel:18005712181">1800-571-2181</a><br />
-              Phone: <a href="tel:07272482547">07272-482547</a>, <a href="tel:9685096514">9685096514</a><br />
+              Campus: <a href={CONTACT.phoneTel}>{CONTACT.phone}</a><br />
               <a className="more" href={CONTACT.maps} target="_blank" rel="noopener"><Icon name="pin" size={15} style={{ verticalAlign: '-2px' }} /> Open in Google Maps</a>
             </div>
             <div>

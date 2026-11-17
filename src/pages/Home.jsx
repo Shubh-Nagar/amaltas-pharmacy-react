@@ -18,7 +18,7 @@ const NOTICES = [
   [PDF.pci, 'PCI approved letter 2026-27'],
   [PDF.affiliation, 'Affiliation letter'],
   [PDF.brochure, 'Download the 2026-27 brochure'],
-  ['#contact', 'Call the admission office: 7880154607 or 1800-571-2181'],
+  ['#contact', 'Call the admission office: +91 7880154607'],
   ['#events', 'Latest events from campus'],
   ['#syllabus', 'Syllabus for B.Pharm and D.Pharm'],
 ];
